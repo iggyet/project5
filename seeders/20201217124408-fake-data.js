@@ -1,28 +1,242 @@
-const faker = require('faker');
-
 module.exports = {
   up: async (queryInterface) => {
-    const itemsList = [];
-
-    for (let i = 0; i < 100; i += 1) {
-      itemsList.push({
-        name: faker.commerce.product(),
-        description: faker.commerce.productDescription(),
-        price: faker.commerce.price(),
+    const restaurantList = [
+      {
+        categories: "Japanese",
+        location: "Clementi Mall",
+        name: "Ichiban Sushi",
         created_at: new Date(),
         updated_at: new Date(),
-      });
-    }
+      },
+    ];
+    await queryInterface.bulkInsert("restaurants", restaurantList, {
+      returning: true,
+    });
 
-    try {
-      const result = await queryInterface.bulkInsert('items', itemsList);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
+    const staffList = [
+      {
+        restaurant_id: 1,
+        email: "a@a.com",
+        password: "a",
+        name: "Alan",
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ];
+    await queryInterface.bulkInsert("staffs", staffList, {
+      returning: true,
+    });
+
+    const availableTableList = [
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 1,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 2,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 3,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 4,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 5,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 6,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 7,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 8,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 9,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 2,
+        table_number: 10,
+        status: "available",
+        combinability: true,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 11,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 12,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 13,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 14,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 15,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 16,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 17,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 18,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 19,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 20,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 21,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        restaurant_id: 1,
+        table_capacity: 4,
+        table_number: 22,
+        status: "available",
+        combinability: false,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ];
+    await queryInterface.bulkInsert("available_tables", availableTableList, {
+      returning: true,
+    });
   },
 
   down: async (queryInterface) => {
-    await queryInterface.bulkDelete('items', null, {});
+    await Promise.all([
+      await queryInterface.bulkDelete("restaurants", null, {}),
+      await queryInterface.bulkDelete("staffs", null, {}),
+      await queryInterface.bulkDelete("available_tables", null, {}),
+    ]);
   },
 };
