@@ -2,7 +2,6 @@ import { Sequelize } from "sequelize";
 import url from "url";
 import allConfig from "../config/config.js";
 
-import userModel from "./user.mjs";
 import staffModel from "./staff.mjs";
 import availableTableModel from "./availableTable.mjs";
 import titleModel from "./title.mjs";
@@ -10,6 +9,7 @@ import restaurantModel from "./restaurant.mjs";
 import oneToTwoPaxWaitingListModel from "./oneToTwoPaxWaitingList.mjs";
 import threeToFourPaxWaitingListModel from "./threeToFourPaxWaitingList.mjs";
 import moreThanFourPaxWaitingListModel from "./moreThanFourPaxWaitingList.mjs";
+import nowServingModel from "./nowServing.mjs";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -47,7 +47,6 @@ if (env === "production") {
   );
 }
 
-db.User = userModel(sequelize, Sequelize.DataTypes);
 db.Staff = staffModel(sequelize, Sequelize.DataTypes);
 db.AvailableTable = availableTableModel(sequelize, Sequelize.DataTypes);
 db.Title = titleModel(sequelize, Sequelize.DataTypes);
@@ -65,18 +64,10 @@ db.MoreThanFourPaxWaitingListModel = moreThanFourPaxWaitingListModel(
   sequelize,
   Sequelize.DataTypes
 );
+db.NowServingModel = nowServingModel(sequelize, Sequelize.DataTypes);
 
 db.Staff.belongsToMany(db.Title, { through: "staffs_titles" });
 db.Title.belongsToMany(db.Staff, { through: "staffs_titles" });
-
-db.OneToTwoPaxWaitingListModel.hasMany(db.User);
-db.User.belongsTo(db.OneToTwoPaxWaitingListModel);
-
-db.ThreeToFourPaxWaitingListModel.hasMany(db.User);
-db.User.belongsTo(db.ThreeToFourPaxWaitingListModel);
-
-db.MoreThanFourPaxWaitingListModel.hasMany(db.User);
-db.User.belongsTo(db.MoreThanFourPaxWaitingListModel);
 
 db.Restaurant.hasMany(db.Staff);
 db.Staff.belongsTo(db.Restaurant);

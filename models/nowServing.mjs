@@ -1,6 +1,6 @@
-export default function userModel(sequelize, DataTypes) {
+export default function nowServingModel(sequelize, DataTypes) {
   return sequelize.define(
-    "user",
+    "now_serving",
     {
       id: {
         allowNull: false,
@@ -8,14 +8,17 @@ export default function userModel(sequelize, DataTypes) {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      name: {
-        type: DataTypes.STRING,
+      oneTwoPax: {
+        type: DataTypes.TEXT,
+        // allowNull: false,
       },
-      contactNumber: {
-        type: DataTypes.INTEGER,
+      threeFourPax: {
+        type: DataTypes.TEXT,
+        // allowNull: false,
       },
-      groupSize: {
-        type: DataTypes.INTEGER,
+      fourPlusPax: {
+        type: DataTypes.TEXT,
+        // allowNull: false,
       },
       createdAt: {
         allowNull: false,

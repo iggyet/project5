@@ -1,34 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // Create items and categories tables before the table that references them
-    await queryInterface.createTable("users", {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
-      name: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      contact_number: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
-      group_size: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-    });
+
     await queryInterface.createTable("restaurants", {
       id: {
         allowNull: false,
@@ -124,10 +97,10 @@ module.exports = {
       },
       combinability: {
         allowNull: false,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.TEXT,
       },
       estimated_to_be_available_at: {
-        type: Sequelize.TIME,
+        type: Sequelize.DATE,
       },
       occupied_at: {
         type: Sequelize.DATE,
@@ -221,14 +194,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id",
-        },
-        allowNull: false,
-      },
       restaurant_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -236,17 +201,25 @@ module.exports = {
           key: "id",
         },
       },
-      available_table_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "available_tables",
-          key: "id",
-        },
+      // available_table_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "available_tables",
+      //     key: "id",
+      //   },
+      // },
+      name: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
-      queue_position: {
+      contact_number: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      // queue_position: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       queue_number: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -259,12 +232,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      now_serving: {
-        type: Sequelize.TEXT,
-        // references: {
-        //   model: "one_to_two_pax_waiting_lists",
-        //   key: "queue_number",
-        // },
+      // now_serving: {
+      //   type: Sequelize.TEXT,
+      //   // references: {
+      //   //   model: "one_to_two_pax_waiting_lists",
+      //   //   key: "queue_number",
+      //   // },
+      // },
+      taken_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
       created_at: {
         allowNull: false,
@@ -282,14 +260,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id",
-        },
-        allowNull: false,
-      },
       restaurant_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -297,17 +267,25 @@ module.exports = {
           key: "id",
         },
       },
-      available_table_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "available_tables",
-          key: "id",
-        },
+      // available_table_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "available_tables",
+      //     key: "id",
+      //   },
+      // },
+      name: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
-      queue_position: {
+      contact_number: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      // queue_position: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       queue_number: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -320,12 +298,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      now_serving: {
-        type: Sequelize.INTEGER,
-        // references: {
-        //   model: "three_to_four_pax_waiting_lists",
-        //   key: "queue_number",
-        // },
+      // now_serving: {
+      //   type: Sequelize.INTEGER,
+      //   // references: {
+      //   //   model: "three_to_four_pax_waiting_lists",
+      //   //   key: "queue_number",
+      //   // },
+      // },
+      taken_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
       created_at: {
         allowNull: false,
@@ -343,14 +326,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id",
-        },
-        allowNull: false,
-      },
       restaurant_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -358,17 +333,25 @@ module.exports = {
           key: "id",
         },
       },
-      available_table_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "available_tables",
-          key: "id",
-        },
+      // available_table_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "available_tables",
+      //     key: "id",
+      //   },
+      // },
+      name: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
-      queue_position: {
+      contact_number: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      // queue_position: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       queue_number: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -381,12 +364,45 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      now_serving: {
+      // now_serving: {
+      //   type: Sequelize.INTEGER,
+      //   // references: {
+      //   //   model: "more_than_four_pax_waiting_lists",
+      //   //   key: "queue_number",
+      //   // },
+      // },
+      taken_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+    });
+    await queryInterface.createTable("now_serving", {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
         type: Sequelize.INTEGER,
-        // references: {
-        //   model: "more_than_four_pax_waiting_lists",
-        //   key: "queue_number",
-        // },
+      },
+      one_two_pax: {
+        // allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      three_four_pax: {
+        // allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      four_plus_pax: {
+        // allowNull: false,
+        type: Sequelize.TEXT,
       },
       created_at: {
         allowNull: false,
@@ -402,7 +418,6 @@ module.exports = {
   down: async (queryInterface) => {
     // Drop tables with foreign key references first
     await Promise.all([
-      queryInterface.dropTable("users"),
       queryInterface.dropTable("staffs"),
       queryInterface.dropTable("available_tables"),
       queryInterface.dropTable("titles"),
@@ -411,6 +426,7 @@ module.exports = {
       queryInterface.dropTable("one_to_two_pax_waiting_lists"),
       queryInterface.dropTable("three_to_four_pax_waiting_lists"),
       queryInterface.dropTable("more_than_four_pax_waiting_lists"),
+      queryInterface.dropTable("now_serving"),
     ]);
   },
 };

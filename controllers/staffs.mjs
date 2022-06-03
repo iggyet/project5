@@ -4,7 +4,7 @@ export default function initStaffsController(db) {
   const login = async (request, response) => {
     console.log(request.body);
     try {
-      const user = await db.User.findOne({
+      const user = await db.Staff.findOne({
         where: {
           email: request.body.email,
         },

@@ -28,20 +28,17 @@ export default function availableTableModel(sequelize, DataTypes) {
         allowNull: false,
       },
       combinability: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       estimatedToBeAvailableAt: {
         type: DataTypes.TIME,
-        allowNull: false,
       },
       occupiedAt: {
         type: DataTypes.DATE,
-        allowNull: false,
       },
       availableAt: {
         type: DataTypes.DATE,
-        allowNull: false,
       },
       seatedByStaffId: {
         type: DataTypes.INTEGER,
