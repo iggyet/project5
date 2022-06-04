@@ -49,7 +49,7 @@ export default function oneToTwoPaxWaitingListModel(sequelize, DataTypes) {
       //   //   key: "queue_number",
       //   // },
       // },
-      taken_at: {
+      takenAt: {
         allowNull: false,
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,

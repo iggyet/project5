@@ -49,6 +49,29 @@ module.exports = {
       }
     );
 
+    const threeFourPaxList = [
+      {
+        restaurant_id: 1,
+        name: "Icha",
+        contact_number: 88888888,
+        // queue_position:1
+        queue_number: "B1",
+        queue_status: "Active",
+        number_of_active_queues: 1,
+        // now_serving:"A1"
+        taken_at: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ];
+    await queryInterface.bulkInsert(
+      "three_to_four_pax_waiting_lists",
+      threeFourPaxList,
+      {
+        returning: true,
+      }
+    );
+
     const staffList = [
       {
         restaurant_id: 1,
@@ -273,6 +296,11 @@ module.exports = {
     await Promise.all([
       await queryInterface.bulkDelete("restaurants", null, {}),
       await queryInterface.bulkDelete("one_to_two_pax_waiting_lists", null, {}),
+      await queryInterface.bulkDelete(
+        "three_to_four_pax_waiting_lists",
+        null,
+        {}
+      ),
       await queryInterface.bulkDelete("staffs", null, {}),
       await queryInterface.bulkDelete("available_tables", null, {}),
     ]);

@@ -4,7 +4,7 @@ import methodOverride from "method-override";
 import bindRoutes from "./routes.mjs";
 import cors from "cors";
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3001";
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3002";
 
 // Initialise Express instance
 const app = express();
@@ -32,5 +32,5 @@ app.use(express.static("public"));
 bindRoutes(app);
 
 // Set Express to listen on the given port
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3004;
 app.listen(PORT);
