@@ -1,6 +1,6 @@
 export default function threeToFourPaxWaitingListModel(sequelize, DataTypes) {
   return sequelize.define(
-    "three_to_four_pax_waiting_list",
+    "three_to_four_pax_waiting_lists",
     {
       id: {
         allowNull: false,
@@ -34,10 +34,10 @@ export default function threeToFourPaxWaitingListModel(sequelize, DataTypes) {
       //   type: DataTypes.INTEGER,
       //   allowNull: false,
       // },
-      queueNumber: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
+      // queueNumber: {
+      //   type: DataTypes.TEXT,
+      //   allowNull: false,
+      // },
       queueStatus: {
         type: DataTypes.TEXT,
         allowNull: false,

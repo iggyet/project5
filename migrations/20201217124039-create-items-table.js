@@ -216,22 +216,30 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      // table_for: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
+      // group_size: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       // queue_position: {
       //   allowNull: false,
       //   type: Sequelize.INTEGER,
       // },
-      queue_number: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
+      // queue_number: {
+      //   allowNull: false,
+      //   type: Sequelize.TEXT,
+      // },
       queue_status: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      number_of_active_queues: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
+      // number_of_active_queues: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       // now_serving: {
       //   type: Sequelize.TEXT,
       //   // references: {
@@ -286,18 +294,18 @@ module.exports = {
       //   allowNull: false,
       //   type: Sequelize.INTEGER,
       // },
-      queue_number: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
+      // queue_number: {
+      //   allowNull: false,
+      //   type: Sequelize.TEXT,
+      // },
       queue_status: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      number_of_active_queues: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
+      // number_of_active_queues: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       // now_serving: {
       //   type: Sequelize.INTEGER,
       //   // references: {
@@ -348,26 +356,34 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      // table_for: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
+      group_size: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       // queue_position: {
       //   allowNull: false,
       //   type: Sequelize.INTEGER,
       // },
-      queue_number: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
+      // queue_number: {
+      //   allowNull: false,
+      //   type: Sequelize.TEXT,
+      // },
       queue_status: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      number_of_active_queues: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
-      // now_serving: {
+      // number_of_active_queues: {
+      //   allowNull: false,
       //   type: Sequelize.INTEGER,
+      // },
+      // now_serving: {
+      //   type: Sequelize.TEXT,
       //   // references: {
-      //   //   model: "more_than_four_pax_waiting_lists",
+      //   //   model: "one_to_two_pax_waiting_lists",
       //   //   key: "queue_number",
       //   // },
       // },

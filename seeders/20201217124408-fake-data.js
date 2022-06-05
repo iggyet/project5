@@ -19,9 +19,11 @@ module.exports = {
         name: "Ichi",
         contact_number: 88888888,
         // queue_position:1
-        queue_number: "A1",
+        // queue_number: "A1",
         queue_status: "Active",
-        number_of_active_queues: 2,
+        // table_for: 2,
+        // group_size: 2,
+        // number_of_active_queues: 2,
         // now_serving:"A1"
         taken_at: new Date(),
         created_at: new Date(),
@@ -32,9 +34,11 @@ module.exports = {
         name: "Ban Sushi",
         contact_number: 99999999,
         // queue_position:1
-        queue_number: "A2",
+        // queue_number: "A2",
         queue_status: "Active",
-        number_of_active_queues: 2,
+        // table_for: 2,
+        // group_size: 2,
+        // number_of_active_queues: 2,
         // now_serving:"A1"
         taken_at: new Date(),
         created_at: new Date(),
@@ -55,9 +59,9 @@ module.exports = {
         name: "Icha",
         contact_number: 88888888,
         // queue_position:1
-        queue_number: "B1",
+        // queue_number: "B1",
         queue_status: "Active",
-        number_of_active_queues: 1,
+        // number_of_active_queues: 1,
         // now_serving:"A1"
         taken_at: new Date(),
         created_at: new Date(),

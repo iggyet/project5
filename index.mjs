@@ -4,7 +4,7 @@ import methodOverride from "method-override";
 import bindRoutes from "./routes.mjs";
 import cors from "cors";
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3002";
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
 // Initialise Express instance
 const app = express();

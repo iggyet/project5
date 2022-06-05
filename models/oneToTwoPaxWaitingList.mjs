@@ -30,14 +30,22 @@ export default function oneToTwoPaxWaitingListModel(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      // tableFor: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
+      // groupSize: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
       // queuePosition: {
       //   type: DataTypes.INTEGER,
       //   allowNull: false,
       // },
-      queueNumber: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
+      // queueNumber: {
+      //   type: DataTypes.TEXT,
+      //   allowNull: false,
+      // },
       queueStatus: {
         type: DataTypes.TEXT,
         allowNull: false,
