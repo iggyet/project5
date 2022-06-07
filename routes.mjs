@@ -19,6 +19,8 @@ export default function routes(app) {
     initMoreThanFourPaxWaitingListsController(db);
 
   app.get("/availabletables", AvailableTablesController.index);
+  app.get("/availableTwoTables", AvailableTablesController.twoIndex);
+  app.get("/availableFourTables", AvailableTablesController.fourIndex);
   app.post("/updateOccupied", AvailableTablesController.updateOccupied);
   app.post("/updateAvailable", AvailableTablesController.updateAvailable);
   app.post("/staffsLogin", StaffsController.login);

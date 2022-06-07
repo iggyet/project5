@@ -7,6 +7,26 @@ export default function initAvailableTablesController(db) {
       console.log(error);
     }
   };
+  const twoIndex = async (request, response) => {
+    try {
+      const availableTwoTables = await db.AvailableTable.findAll({
+        where: { tableCapacity: 2 },
+      });
+      response.send({ availableTwoTables });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fourIndex = async (request, response) => {
+    try {
+      const availableFourTables = await db.AvailableTable.findAll({
+        where: { tableCapacity: 4 },
+      });
+      response.send({ availableFourTables });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const updateOccupied = async (request, response) => {
     try {
       console.log(request.body.value);
@@ -19,6 +39,7 @@ export default function initAvailableTablesController(db) {
           occupiedAt: oldOccupied,
           estimatedToBeAvailableAt: newOccupied,
           availableAt: null,
+          status: "Occupied",
         },
         {
           where: { id: request.body.value },
@@ -38,6 +59,7 @@ export default function initAvailableTablesController(db) {
           availableAt: new Date(),
           occupiedAt: null,
           estimatedToBeAvailableAt: null,
+          status: "Available",
         },
         {
           where: { id: request.body.value },
@@ -54,5 +76,7 @@ export default function initAvailableTablesController(db) {
     index,
     updateOccupied,
     updateAvailable,
+    twoIndex,
+    fourIndex,
   };
 }
