@@ -1,4 +1,7 @@
-export default function threeToFourPaxWaitingListModel(sequelize, DataTypes) {
+export default function initThreeToFourPaxWaitingListModel(
+  sequelize,
+  DataTypes
+) {
   return sequelize.define(
     "three_to_four_pax_waiting_lists",
     {

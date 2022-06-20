@@ -1,6 +1,6 @@
-export default function availableTableModel(sequelize, DataTypes) {
+export default function historyOfTableActivityModel(sequelize, DataTypes) {
   return sequelize.define(
-    "available_table",
+    "history_of_table_activity",
     {
       id: {
         allowNull: false,

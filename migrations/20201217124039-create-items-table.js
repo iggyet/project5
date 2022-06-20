@@ -108,20 +108,83 @@ module.exports = {
       available_at: {
         type: Sequelize.DATE,
       },
-      seated_by_staff_id: {
+      // seated_by_staff_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "staffs",
+      //     key: "id",
+      //   },
+      // },
+      // cleared_by_staff_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "staffs",
+      //     key: "id",
+      //   },
+      // },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+    });
+    await queryInterface.createTable("history_of_table_activities", {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      restaurant_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "staffs",
+          model: "restaurants",
           key: "id",
         },
+        allowNull: false,
       },
-      cleared_by_staff_id: {
+      table_capacity: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        references: {
-          model: "staffs",
-          key: "id",
-        },
       },
+      table_number: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      combinability: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      estimated_to_be_available_at: {
+        type: Sequelize.DATE,
+      },
+      occupied_at: {
+        type: Sequelize.DATE,
+      },
+      available_at: {
+        type: Sequelize.DATE,
+      },
+      // seated_by_staff_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "staffs",
+      //     key: "id",
+      //   },
+      // },
+      // cleared_by_staff_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "staffs",
+      //     key: "id",
+      //   },
+      // },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -414,6 +477,7 @@ module.exports = {
       queryInterface.dropTable("one_to_two_pax_waiting_lists"),
       queryInterface.dropTable("three_to_four_pax_waiting_lists"),
       queryInterface.dropTable("more_than_four_pax_waiting_lists"),
+      queryInterface.dropTable("history_of_table_activities"),
     ]);
   },
 };

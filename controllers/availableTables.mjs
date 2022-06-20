@@ -32,7 +32,9 @@ export default function initAvailableTablesController(db) {
       console.log(request.body.value);
       const oldOccupied = new Date();
       const newOccupied = new Date();
-      newOccupied.setTime(oldOccupied.getTime() + 30 * 60 * 1000);
+      newOccupied.setTime(
+        oldOccupied.getTime() + request.body.estWT * 60 * 1000
+      );
       console.log(newOccupied);
       const updateTable = await db.AvailableTable.update(
         {
@@ -71,6 +73,36 @@ export default function initAvailableTablesController(db) {
       console.log(error);
     }
   };
+  const updateAvailableOnly = async (request, response) => {
+    try {
+      console.log(request.body.value);
+      const updateTable = await db.AvailableTable.update(
+        {
+          availableAt: new Date(),
+          status: "Done",
+        },
+        {
+          where: { id: request.body.value },
+        }
+      );
+      console.log(updateTable);
+      response.send("hello");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const findOne = async (request, response) => {
+    try {
+      console.log(request.body);
+      console.log(`findOne ${request.body.value}`);
+      const foundOne = await db.AvailableTable.findOne({
+        where: { id: request.body.value },
+      });
+      response.send({ foundOne });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return {
     index,
@@ -78,5 +110,7 @@ export default function initAvailableTablesController(db) {
     updateAvailable,
     twoIndex,
     fourIndex,
+    updateAvailableOnly,
+    findOne,
   };
 }

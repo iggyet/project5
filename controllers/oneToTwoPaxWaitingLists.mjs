@@ -16,10 +16,12 @@ export default function initOneToTwoPaxWaitingListsController(db) {
       console.log(error);
     }
   };
-  const oneTwoStaffIndex = async (request, response) => {
+  const oneTwoMissedIndex = async (request, response) => {
     try {
       const { count, rows } =
-        await db.OneToTwoPaxWaitingListModel.findAndCountAll();
+        await db.OneToTwoPaxWaitingListModel.findAndCountAll({
+          where: { queueStatus: "Missed" },
+        });
       response.send({ count, rows });
       // if (oneTwoLists === null) {
       //   const value1 = 0;
@@ -45,7 +47,7 @@ export default function initOneToTwoPaxWaitingListsController(db) {
       };
       const newQueue = await db.OneToTwoPaxWaitingListModel.create(queue);
       console.log(newQueue);
-      response.send(newQueue);
+      response.send({ newQueue });
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +91,7 @@ export default function initOneToTwoPaxWaitingListsController(db) {
   return {
     oneTwoIndex,
     createQueue,
-    oneTwoStaffIndex,
+    oneTwoMissedIndex,
     oneTwoDelete,
     oneTwoMissed,
   };

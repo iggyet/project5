@@ -16,10 +16,12 @@ export default function initThreeToFourPaxWaitingListsController(db) {
       console.log(error);
     }
   };
-  const threeFourStaffIndex = async (request, response) => {
+  const threeFourMissedIndex = async (request, response) => {
     try {
       const { count, rows } =
-        await db.ThreeToFourPaxWaitingListModel.findAndCountAll();
+        await db.ThreeToFourPaxWaitingListModel.findAndCountAll({
+          where: { queueStatus: "Missed" },
+        });
       response.send({ count, rows });
       // if (threeFourLists === null) {
       //   const value3 = 0;
@@ -44,7 +46,7 @@ export default function initThreeToFourPaxWaitingListsController(db) {
       };
       const newQueue = await db.ThreeToFourPaxWaitingListModel.create(queue);
       console.log(newQueue);
-      response.send(newQueue);
+      response.send({ newQueue });
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +90,7 @@ export default function initThreeToFourPaxWaitingListsController(db) {
   return {
     threeFourIndex,
     createQueue,
-    threeFourStaffIndex,
+    threeFourMissedIndex,
     threeFourDelete,
     threeFourMissed,
   };

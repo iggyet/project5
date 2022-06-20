@@ -9,6 +9,7 @@ import restaurantModel from "./restaurant.mjs";
 import oneToTwoPaxWaitingListModel from "./oneToTwoPaxWaitingList.mjs";
 import threeToFourPaxWaitingListModel from "./threeToFourPaxWaitingList.mjs";
 import moreThanFourPaxWaitingListModel from "./moreThanFourPaxWaitingList.mjs";
+import historyOfTableActivityModel from "./historyOfTableActivity.mjs";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -62,6 +63,10 @@ db.ThreeToFourPaxWaitingListModel = threeToFourPaxWaitingListModel(
 db.MoreThanFourPaxWaitingListModel = moreThanFourPaxWaitingListModel(
   sequelize,
   Sequelize.DataTypes
+);
+db.HistoryOfTableActivityModel = historyOfTableActivityModel(
+  sequelize,
+  Sequelize
 );
 
 db.Staff.belongsToMany(db.Title, { through: "staffs_titles" });

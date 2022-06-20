@@ -16,10 +16,12 @@ export default function initMoreThanFourPaxWaitingListsController(db) {
       console.log(error);
     }
   };
-  const fourPlusStaffIndex = async (request, response) => {
+  const fourPlusMissedIndex = async (request, response) => {
     try {
       const { count, rows } =
-        await db.MoreThanFourPaxWaitingListModel.findAndCountAll();
+        await db.MoreThanFourPaxWaitingListModel.findAndCountAll({
+          where: { queueStatus: "Missed" },
+        });
       response.send({ count, rows });
       // if (fourPlusLists === null) {
       //   const value4 = 0;
@@ -44,7 +46,7 @@ export default function initMoreThanFourPaxWaitingListsController(db) {
       };
       const newQueue = await db.MoreThanFourPaxWaitingListModel.create(queue);
       console.log(newQueue);
-      response.send(newQueue);
+      response.send({ newQueue });
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +90,7 @@ export default function initMoreThanFourPaxWaitingListsController(db) {
   return {
     fourPlusIndex,
     createQueue,
-    fourPlusStaffIndex,
+    fourPlusMissedIndex,
     fourPlusDelete,
     fourPlusMissed,
   };
